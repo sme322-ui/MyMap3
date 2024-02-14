@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>lat</key>
+		<real>23.69201</real>
+		<key>long</key>
+		<real>120.531683</real>
+		<key>no</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>起點</string>
+	</dict>
+	<dict>
+		<key>lat</key>
+		<real>23.748747</real>
+		<key>long</key>
+		<real>120.751444</real>
+		<key>no</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>lat</key>
+		<real>23.802422</real>
+		<key>long</key>
+		<real>120.862023</real>
+		<key>no</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>lat</key>
+		<real>23.843609</real>
+		<key>long</key>
+		<real>120.927532</real>
+		<key>no</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>lat</key>
+		<real>23.780634</real>
+		<key>long</key>
+		<real>120.950056</real>
+		<key>no</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>lat</key>
+		<real>23.6554647</real>
+		<key>long</key>
+		<real>121.0212867</real>
+		<key>no</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>終點</string>
+	</dict>
+</array>
+</plist>
