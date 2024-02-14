@@ -22,7 +22,7 @@ class THViewController :UIViewController,WKNavigationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "http://192.168.1.104:8088/Demo")!
+        let url = URL(string: "http://192.168.x.x:8088/Demo")!
 
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
