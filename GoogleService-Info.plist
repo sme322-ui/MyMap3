@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>581332005548-jjl5oo817a0clbaa619004059efti2ur.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.1032708914109-fssmqu9lcge9sinv0iauukic0p85j3oq</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.581332005548-jjl5oo817a0clbaa619004059efti2ur</string>
+	<string>1032708914109-fssmqu9lcge9sinv0iauukic0p85j3oq.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDAzqcEXOBQk0d3xzcY43pyN9dePseJrgE</string>
+	<string>AIzaSyDJ142brhbSbzHQVLJ-BiTFaN764vWYNsI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>581332005548</string>
+	<string>1032708914109</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.cocoapods.MyMap3</string>
+	<string>com.MyMap4.app</string>
 	<key>PROJECT_ID</key>
-	<string>quick-sonar-368910</string>
+	<string>mymap4-8f8bc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>quick-sonar-368910.appspot.com</string>
+	<string>mymap4-8f8bc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:581332005548:ios:990393d0fd6afd3d9fa509</string>
+	<string>1:1032708914109:ios:de0a880838346d07f9b0d4</string>
 </dict>
 </plist>
