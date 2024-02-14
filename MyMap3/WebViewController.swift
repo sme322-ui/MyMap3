@@ -22,7 +22,7 @@ class WebViewController :UIViewController,WKNavigationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ipAddress = "192.168.1.104"
+        let ipAddress = "192.168.x.x" //連上Arduino溫度感測頁面
                
                // 拼接完整的URL
                if let url = URL(string: "http://\(ipAddress)") {
