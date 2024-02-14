@@ -1,51 +1,80 @@
-iimport UIKit
-import Firebase
+import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 import GoogleSignIn
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-                 withError error: Error!) {
-           if let error = error {
-               print("\(error.localizedDescription)")
-               // [START_EXCLUDE silent]
-               NotificationCenter.default.post(
-                   name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
-               // [END_EXCLUDE]
-           } else {
-               // Perform any operations on signed in user here.
-               let userId = user.userID                  // For client-side use only!
-               let idToken = user.authentication.idToken // Safe to send to the server
-               let fullName = user.profile.name
-               let givenName = user.profile.givenName
-               let familyName = user.profile.familyName
-               let email = user.profile.email
-               // [START_EXCLUDE]
-               NotificationCenter.default.post(
-                   name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-                   object: nil,
-                   userInfo: ["statusText": "Signed in user:\n\(fullName)"])
-               // [END_EXCLUDE]
-           }
-       }
+import Messages
+import FirebaseMessaging
+import UserNotifications
+import OpenAI
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate,UNUserNotificationCenterDelegate {
+    var window: UIWindow?
     
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
-                  withError error: Error!) {
-            // Perform any operations when the user disconnects from app here.
-            // [START_EXCLUDE]
-            NotificationCenter.default.post(
-                name: Notification.Name(rawValue: "ToggleAuthUINotification"),
-                object: nil,
-                userInfo: ["statusText": "User has disconnected."])
-            // [END_EXCLUDE]
-        }
-
-
+    let gIdConfiguration = GIDConfiguration(clientID: "1032708914109-7da9mot768l8pd1f3g6b3f1j66r61an5.apps.googleusercontent.com", serverClientID: "1032708914109")
+   
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+                     withError error: Error!) {
+               if let error = error {
+                   print("\(error.localizedDescription)")
+                   // [START_EXCLUDE silent]
+                   NotificationCenter.default.post(
+                       name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
+                   // [END_EXCLUDE]
+               }
+           }
+        
+        func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+                      withError error: Error!) {
+                // Perform any operations when the user disconnects from app here.
+                // [START_EXCLUDE]
+                NotificationCenter.default.post(
+                    name: Notification.Name(rawValue: "ToggleAuthUINotification"),
+                    object: nil,
+                    userInfo: ["statusText": "User has disconnected."])
+                // [END_EXCLUDE]
+            }
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        print(url)
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance()?.clientID = "581332005548-jjl5oo817a0clbaa619004059efti2ur.apps.googleusercontent.com"
-               
+        GIDSignIn.sharedInstance.configuration = gIdConfiguration
+        Messaging.messaging().delegate = self
+        
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions:UNAuthorizationOptions = [.alert,.sound,.badge]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions){(_,_) in}
+        application.registerForRemoteNotifications()
+        
+     
+               UIApplication.shared.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge])
+        {(granted,error) in
+            if granted{
+                print("User Notification are allow")
+            }else{
+                print("User notification are not allow")
+            }
+            
+        }
+        let fm = FileManager.default
+        
+        let src = Bundle.main.path(forResource: "stations", ofType: "plist")
+        
+        let dst = NSHomeDirectory()+"/Documents/stations.plist"
+        
+        if !fm.fileExists(atPath: dst){
+            try! fm.copyItem(atPath: src!, toPath: dst)
+        }
         return true
+        
+        
     }
 
     // MARK: UISceneSession Lifecycle
@@ -54,17 +83,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
+    
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
     @available(iOS 9.0, *)
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-           return GIDSignIn.sharedInstance().handle(url,
-                                                    sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                    annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-       }
+    func application(
+      _ application: UIApplication,
+      open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]
+    ) -> Bool {
+    // Handle other custom URL types.
+
+      // If not handled by this app, return false.
+        GIDSignIn.sharedInstance.configuration = gIdConfiguration
+        
+        
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Get Token:\(fcmToken)")
+    }
+    
+    
+    
 }
+
