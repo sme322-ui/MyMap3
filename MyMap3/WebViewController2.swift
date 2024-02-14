@@ -15,7 +15,7 @@ class WebViewController2 :UIViewController,WKNavigationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ipAddress = "192.168.1.x:5501/th?t=20.90" //連上nodeJs IP,於溫度資料庫寫入溫度資料
+        let ipAddress = "192.168.x.x:5501/th?t=20.90" //連上nodeJs IP,於溫度資料庫寫入溫度資料
                
                // 拼接完整的URL
                if let url = URL(string: "http://\(ipAddress)") {
