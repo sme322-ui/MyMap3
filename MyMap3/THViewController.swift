@@ -22,12 +22,12 @@ class THViewController :UIViewController,WKNavigationDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "http://192.168.x.x:8088/Demo")!
+        let url = URL(string: "http://192.168.x.x:8088/Demo")! //url <- Demo IP位址
 
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil) 
         } else {
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.openURL(url) //開啟:/sme322-ui/Demo 專案,顯示圖表資訊
         }
         
     }
