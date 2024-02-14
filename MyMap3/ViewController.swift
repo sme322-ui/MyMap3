@@ -32,10 +32,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate,WKUIDelegate, 
                                     autoreleaseFrequency: .workItem,
                                     target: nil)
     let content = UNMutableNotificationContent()
-  
-    
-    
-    
     func bleManagerDidConnect(_ manager: BLEManagable) {
         self.temperature.textColor = UIColor.blue
     }
