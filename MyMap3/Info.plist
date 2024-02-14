@@ -2,21 +2,43 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>This application uses bluetooth to connect to external devices</string>
+	<key>LSApplicationQueriesScemes</key>
+	<array>
+		<string>rtsp</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>581332005548-jjl5oo817a0clbaa619004059efti2ur.apps.googleusercontent.com</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.581332005548-jjl5oo817a0clbaa619004059efti2ur</string>
+				<string>1032708914109-fssmqu9lcge9sinv0iauukic0p85j3oq.apps.googleusercontent.com</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.MyMap4.app</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>rtsp</string>
 			</array>
 		</dict>
 	</array>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSLocationDefaultAccuracyReduced</key>
@@ -40,9 +62,9 @@
 			</array>
 		</dict>
 	</dict>
-	<key>CFBundleIdentifier</key>
-	<string></string>
-	<key>FirebaseAutomaticScreenReportingEnabled</key>
-	<false/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>aps-environment</key>
+	<string>development</string>
 </dict>
-</plist
+</plist>
