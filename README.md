@@ -26,7 +26,7 @@ Google登入、商品列表、地圖顯示、各牧場標記、當前位置標�
 connection.end();
 
 *Set up connection port:
-如：
+Ex：
 var server = app.listen(5501,function(){
    console.log("伺服器在5501 port");
 });
