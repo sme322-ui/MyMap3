@@ -12,11 +12,11 @@ Google登入、商品列表、地圖顯示、各牧場標記、當前位置標�
 
 
 ================================= NodeJs file ===============================================
-* var mysql = require('mysql'); //node Js引入mysql函式庫
+* var mysql = require('mysql'); //node Js include mysql library
 
-* mysql.createConnection() //連接數據庫
+* mysql.createConnection() //connect database
 
-* mysql Insert 資料,如：
+* mysql Insert data,EX：
   var  addSql = 'INSERT INTO temp(timStamp,temperature) values (?,?)';
                       connection.query(addSql,addSqlParams,function (err, result) {
 ...
@@ -25,7 +25,7 @@ Google登入、商品列表、地圖顯示、各牧場標記、當前位置標�
  
 connection.end();
 
-*設定連線port:
+*Set up connection port:
 如：
 var server = app.listen(5501,function(){
    console.log("伺服器在5501 port");
