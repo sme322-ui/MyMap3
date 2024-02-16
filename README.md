@@ -11,7 +11,7 @@ Google登入、商品列表、地圖顯示、各牧場標記、當前位置標�
 
 
 
-================================= NodeJs file ===============================================
+======================== NodeJs file ===============================================
 * var mysql = require('mysql'); //node Js include mysql library
 
 * mysql.createConnection() //connect database
