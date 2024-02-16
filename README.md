@@ -16,7 +16,7 @@ Google登入、商品列表、地圖顯示、各牧場標記、當前位置標�
 
 * mysql.createConnection() //connect database
 
-* mysql Insert data,EX：
+* mysql Insert data,Ex：
   var  addSql = 'INSERT INTO temp(timStamp,temperature) values (?,?)';
                       connection.query(addSql,addSqlParams,function (err, result) {
 ...
