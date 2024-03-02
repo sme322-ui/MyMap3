@@ -28,5 +28,5 @@ connection.end();
 *Set up connection port:
 Ex：
 var server = app.listen(5501,function(){
-   console.log("伺服器在5501 port");
+   console.log("server at 5501 port");
 });
