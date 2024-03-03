@@ -98,7 +98,7 @@ class Login:UIViewController{
             }
             print(user.email as Any, user.uid)
         }
-        Auth.auth().signIn(withEmail: "subendon@yuntech.deu.tw", password: "01A3b7404933") { (user, error) in
+        Auth.auth().signIn(withEmail: "D12345", password: "D12345") { (user, error) in
                     if (error != nil) {
                         let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "Error", style: .cancel, handler: nil)
