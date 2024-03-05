@@ -89,7 +89,7 @@ class Login:UIViewController{
             }
         }
         
-        Auth.auth().createUser(withEmail: "D12345", password: "D12345") { result, error in
+        Auth.auth().createUser(withEmail: "D12345@mail.cv", password: "Aa7654321") { result, error in
             
             guard let user = result?.user,
                   error == nil else {
